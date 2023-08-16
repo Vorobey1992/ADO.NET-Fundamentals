@@ -1,14 +1,15 @@
 ﻿using ADO.NET_Fundamentals.Data;
 using ADO.NET_Fundamentals.Models;
 
-string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"; 
+string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False";
 
-DataAccess dataAccess = new(connectionString);
+
+ ProductRepository productRepository = new(connectionString);
+ OrderRepository orderRepository = new(connectionString);
 
 // Создание продукта
 Product newProduct = new()
 {
-    Id = 1,
     Name = "Sample Product",
     Description = "A sample product",
     Weight = 1.5,
@@ -16,42 +17,38 @@ Product newProduct = new()
     Width = 5,
     Length = 20
 };
-dataAccess.CreateProduct(newProduct);
+int productId = productRepository.CreateProduct(newProduct);
 
 // Обновление продукта
 newProduct.Name = "Updated Product";
-dataAccess.UpdateProduct(newProduct);
-
-// Удаление продукта
-dataAccess.DeleteProduct(newProduct.Id);
+productRepository.UpdateProduct(productId,newProduct);
 
 // Создание заказа
 Order newOrder = new()
 {
-    Id = 1,
-    Status = "InProgress",
+    Status = OrderStatus.InProgress,
     CreatedDate = DateTime.Now,
     UpdatedDate = DateTime.Now,
-    ProductId = 1
+    ProductId = productId,
 };
-dataAccess.CreateOrder(newOrder);
+int orderId = orderRepository.CreateOrder(newOrder);
 
 // Обновление заказа
-newOrder.Status = "Done";
-dataAccess.UpdateOrder(newOrder);
+newOrder.Status = OrderStatus.Done;
+orderRepository.UpdateOrder(orderId,newOrder);
 
-// Удаление заказа
-dataAccess.DeleteOrder(newOrder.Id);
-
-// Получение списка продуктов
-var products = dataAccess.GetAllProducts();
 
 // Получение заказов по фильтру
-DateTime startDate = new(2023, 1, 1);
-DateTime endDate = new(2023, 12, 31);
-string status = "InProgress";
-int productId = 1;
-var filteredOrders = dataAccess.GetOrdersByFilter(startDate, endDate, status, productId);
+DateTime startDate = new DateTime(2023, 1, 1);
+DateTime endDate = new DateTime(2023, 12, 31);
+OrderStatus status = OrderStatus.InProgress;
+var filteredOrders = orderRepository.GetOrdersByFilter(startDate, endDate, status, orderId);
 
 // Удаление заказов по фильтру
-dataAccess.BulkDeleteOrdersByFilter(startDate, endDate, status, productId);
+orderRepository.BulkDeleteOrdersByFilter(startDate, endDate, status, orderId);
+
+// Удаление заказа
+orderRepository.DeleteOrder(orderId);
+
+// Удаление продукта
+productRepository.DeleteProduct(newProduct.Id);
