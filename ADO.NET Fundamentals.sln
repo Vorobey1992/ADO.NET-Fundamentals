@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADO.NET Fundamentals", "ADO.NET Fundamentals\ADO.NET Fundamentals.csproj", "{F530F36C-A529-44AD-9808-61161DF701DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLibrary", "..\DataAccessLibrary\DataAccessLibrary\DataAccessLibrary.csproj", "{6D285E85-50B5-4C89-BB83-36C1743BA275}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{68F0FE57-0D35-464A-BBD0-4C71ABE27980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F530F36C-A529-44AD-9808-61161DF701DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F530F36C-A529-44AD-9808-61161DF701DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F530F36C-A529-44AD-9808-61161DF701DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D285E85-50B5-4C89-BB83-36C1743BA275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D285E85-50B5-4C89-BB83-36C1743BA275}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D285E85-50B5-4C89-BB83-36C1743BA275}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D285E85-50B5-4C89-BB83-36C1743BA275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F0FE57-0D35-464A-BBD0-4C71ABE27980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F0FE57-0D35-464A-BBD0-4C71ABE27980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F0FE57-0D35-464A-BBD0-4C71ABE27980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F0FE57-0D35-464A-BBD0-4C71ABE27980}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
